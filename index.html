@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jual Akun FF Sultan</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #111827, #1f2937);
+      margin: 0;
+      color: white;
+    }
+
+    header {
+      padding: 30px 20px;
+      text-align: center;
+      background-color: #111827;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    header p {
+      color: #9ca3af;
+      margin-top: 8px;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      padding: 30px;
+    }
+
+    .card {
+      background: #1f2937;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      transform: translateY(40px);
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+    }
+
+    .card p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #d1d5db;
+    }
+
+    form {
+      margin-top: 14px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #10b981;
+      color: white;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #059669;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #9ca3af;
+    }
+
+    @keyframes fadeUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Toko Akun SATRIA</h1>
+    <p>Akun FF Sultan, Murah, & Langsung Kirim</p>
+  </header>
+
+  <section class="container">
+    <!-- Akun 1 -->
+    <div class="card">
+      <img src="https://files.catbox.moe/oxz0o4.jpg" alt="Akun 1">
+      <h3>Akun Heroic Skin Sultan</h3>
+      <p>ID: 123456789</p>
+      <p>Harga: Rp 250.000</p>
+      <form onsubmit="return orderNow(event, 'Akun Heroic Skin Sultan', 250000)">
+        <input type="text" name="nama" placeholder="Nama Anda" required>
+        <select name="metode" required>
+          <option value="">Pilih Metode Pembayaran</option>
+          <option value="QRIS">QRIS</option>
+          <option value="DANA">DANA</option>
+          <option value="OVO">OVO</option>
+          <option value="BCA">Transfer BCA</option>
+        </select>
+        <button type="submit">Beli Sekarang</button>
+      </form>
+    </div>
+
+    <!-- Akun 2 -->
+    <div class="card">
+      <img src="https://files.catbox.moe/oxz0o4.jpg" alt="Akun 2">
+      <h3>Akun Diamond Skin Langka</h3>
+      <p>ID: 987654321</p>
+      <p>Harga: Rp 150.000</p>
+      <form onsubmit="return orderNow(event, 'Akun Diamond Skin Langka', 150000)">
+        <input type="text" name="nama" placeholder="Nama Anda" required>
+        <select name="metode" required>
+          <option value="">Pilih Metode Pembayaran</option>
+          <option value="QRIS">QRIS</option>
+          <option value="DANA">DANA</option>
+          <option value="OVO">OVO</option>
+          <option value="BCA">Transfer BCA</option>
+        </select>
+        <button type="submit">Beli Sekarang</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>&copy; 2025 Toko Akun SATRIA | Powered by SATRIA</footer>
+
+  <script>
+    const adminWhatsApp = '6289604810003'; // Ganti dengan nomor Anda
+
+    function orderNow(event, akun, harga) {
+      event.preventDefault();
+      const form = event.target;
+      const nama = form.nama.value;
+      const metode = form.metode.value;
+
+      const pesan = `Halo, saya ingin beli akun:\n` +
+                    `Nama Akun: ${akun}\n` +
+                    `Harga: Rp ${harga.toLocaleString()}\n` +
+                    `Nama Saya: ${nama}\n` +
+                    `Metode Pembayaran: ${metode}`;
+
+      const encoded = encodeURIComponent(pesan);
+      window.open(`https://wa.me/${adminWhatsApp}?text=${encoded}`, '_blank');
+    }
+  </script>
+
+</body>
+</html>
